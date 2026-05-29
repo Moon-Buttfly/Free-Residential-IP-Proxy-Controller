@@ -1,4 +1,4 @@
-// ====== SingleNode Proxy Controller  ======
+// ======  Proxy Controller  ======
 
 export default {
   async fetch(request, env, ctx) {
@@ -495,7 +495,7 @@ def main():
     subprocess.run(["pkill", "-f", "openvpn.*tun[0-9]"], capture_output=True)
     
     print("========================================", flush=True)
-    print("  SingleNode Proxy Controller 引擎启动！", flush=True)
+    print("  Proxy Controller 引擎启动！", flush=True)
     print("========================================", flush=True)
 
     threading.Thread(target=update_config_loop, daemon=True).start()
@@ -519,7 +519,7 @@ if __name__ == "__main__":
     if (url.pathname === "/agent") {
       const agentScript = `#!/usr/bin/env bash
 echo "=========================================================="
-echo "    SingleNode Proxy Controller    "
+echo "     Proxy Controller    "
 echo "=========================================================="
 
 crontab -l 2>/dev/null | grep -v "/opt/proxy_lite/heartbeat.sh" | crontab -
@@ -538,7 +538,7 @@ curl -sLo proxy_server.py ${domain}/scripts/proxy_server.py
 echo "[2/3] 配置系统守护服务..."
 cat > /lib/systemd/system/proxy-lite.service << 'EOF'
 [Unit]
-Description=SingleNode Proxy Core Engine
+Description=  Proxy Core Engine
 After=network.target
 
 [Service]
@@ -627,7 +627,7 @@ echo "[+] 引擎更新成功！全息日志和5秒超高频机制已加载。"
       if (results) {
         for (let server of results) {
           for (let node of JSON.parse(server.details)) {
-            proxyList.push(`socks5://${PROXY_USER}:${PROXY_PASS}@${server.ip}:${node.port}#${node.country}_SingleNode_${node.node_ip || 'IP'}`);
+            proxyList.push(`socks5://${PROXY_USER}:${PROXY_PASS}@${server.ip}:${node.port}#${node.country}_ _${node.node_ip || 'IP'}`);
           }
         }
       }
@@ -655,14 +655,14 @@ const DASHBOARD_HTML = (domain, webUser, webPass, proxyUser, proxyPass) => `
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SingleNode Proxy Controller</title>
+    <title>  Proxy Controller</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans p-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-end mb-6">
             <div>
-                <h1 class="text-3xl font-bold text-blue-400">SingleNode 代理调度控制器</h1>
+                <h1 class="text-3xl font-bold text-blue-400">  代理调度控制器</h1>
                 <p class="text-gray-400 mt-2">量化提取直链: <a href="/api/proxies" target="_blank" class="text-blue-300 hover:underline border-b border-blue-300 border-dashed pb-0.5">${domain}/api/proxies</a></p>
             </div>
             
